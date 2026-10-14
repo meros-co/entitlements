@@ -1,0 +1,21 @@
+[package]
+name = "meros-entitlement"
+version = "0.1.0"
+edition = "2024"
+description = "Offline Ed25519 licence tokens: verification, grace period, clock-rollback anchor, device identity and signed requests"
+license = "LicenseRef-Meros-Proprietary"
+publish = false
+
+[lib]
+name = "meros_entitlement"
+
+[dependencies]
+ed25519-dalek = "2"
+base64 = "0.22"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# SystemRandom for the device seed and id.
+ring = "0.17"
+
+[dev-dependencies]
+tempfile = "3"
