@@ -1,5 +1,5 @@
-//! Offline verification of licence tokens, plus the device identity that
-//! signs licence-service requests.
+//! Offline verification of license tokens, plus the device identity that
+//! signs license-service requests.
 //!
 //! Token format: `base64url(payload_bytes) "." base64url(Ed25519 signature)`,
 //! unpadded. The signature is verified over the exact payload bytes against
@@ -24,7 +24,7 @@ use ed25519_dalek::{Signature, VerifyingKey};
 use serde::Deserialize;
 use serde::de::DeserializeOwned;
 
-/// Grace period after `exp` before a licence lapses.
+/// Grace period after `exp` before a license lapses.
 pub const GRACE_SECS: i64 = 14 * 24 * 3600;
 
 /// Clock-rollback tolerance: system time this far behind the max time we

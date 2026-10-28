@@ -1,7 +1,7 @@
 # meros-entitlement
 
-Offline licence tokens for Meros apps, and the device identity that signs
-licence-service requests.
+Offline license tokens for Meros apps, and the device identity that signs
+license-service requests.
 
 - **Token:** `base64url(payload) "." base64url(Ed25519 signature)`, unpadded.
   The signature covers the exact payload bytes and is checked against the
@@ -9,7 +9,7 @@ licence-service requests.
   is trusted. The payload's `features` object is product-defined.
 - **Time:** a 14-day grace period follows `exp`; a clock more than a day
   behind the latest time ever seen counts as rollback and expires the
-  licence.
+  license.
 - **Device identity:** an Ed25519 seed and a `d_<uuid>` id, generated once
   and kept in the app's storage. Requests are signed over
   `"{method}|{path}|{device_id}|{ts}"`; the private key never leaves the
@@ -36,8 +36,8 @@ Call `meros_entitlement::check_keys(KEYS)` from a test so a mispasted key
 fails the build, not the first activation.
 
 The server side of the contract (token issuance, the device-signed API) is
-specified by each product's licence service.
+specified by each product's license service.
 
-## Licence
+## License
 
-Proprietary, © Meros.
+MIT. See [LICENSE](LICENSE).

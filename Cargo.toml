@@ -2,8 +2,9 @@
 name = "meros-entitlement"
 version = "0.1.0"
 edition = "2024"
-description = "Offline Ed25519 licence tokens: verification, grace period, clock-rollback anchor, device identity and signed requests"
-license = "LicenseRef-Meros-Proprietary"
+description = "Offline Ed25519 license tokens: verification, grace period, clock-rollback anchor, device identity and signed requests"
+license = "MIT"
+repository = "https://github.com/meros-co/entitlements"
 publish = false
 
 [lib]

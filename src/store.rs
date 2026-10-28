@@ -49,7 +49,7 @@ impl<F: DeserializeOwned + Clone> Store<F> {
 
     /// Moves the entitlement clock forward by `secs` for automated tests, so
     /// renewal, grace and expiry can be exercised in seconds. Forward only: an
-    /// offset can make a licence look older, never extend one.
+    /// offset can make a license look older, never extend one.
     pub fn set_test_clock_offset(&self, secs: i64) {
         self.test_clock_offset.store(secs.max(0), Ordering::SeqCst);
     }
@@ -113,7 +113,7 @@ impl<F: DeserializeOwned + Clone> Store<F> {
         verify(self.keys, token.trim()).ok()
     }
 
-    /// Effective features right now: the licence's when valid or in grace,
+    /// Effective features right now: the license's when valid or in grace,
     /// the trial's otherwise.
     pub fn current_features(&self) -> F {
         self.observe_time();
@@ -247,7 +247,7 @@ mod tests {
     }
 
     #[test]
-    fn uninitialised_store_is_trial_and_refuses_tokens() {
+    fn uninitialized_store_is_trial_and_refuses_tokens() {
         let store: Store<Feat> = Store::new(keys(), trial);
         assert!(store.current_features().watermark);
         assert!(store.device_identity().is_none());
